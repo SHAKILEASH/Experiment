@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/konva@6.0.0/konva.min.js"></script>
+    <meta charset="utf-8" />
+    <title>Point Annotation prototype</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f0f0f0;
+      }
+      #buttons {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+      }
+      #buttons > input {
+        padding: 10px;
+        display: block;
+        margin-top: 5px;
+      }
+    #menu {
+        display: none;
+        position: absolute;
+        width: 80px;
+        background-color: white;
+        box-shadow: 0 0 5px grey;
+        border-radius: 3px;
+      }
+
+      #menu button {
+        width: 100%;
+        background-color: white;
+        border: none;
+        margin: 0;
+        padding: 10px;
+      }
+
+      #menu button:hover {
+        background-color: lightgray;
+      }    
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" 
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous">
+    </script>
+       
+  </head>
+  <body>
+    <div id="container" style="background-color: grey;"></div>
+    <div id="status"></div>
+    <div id="buttons">
+        <select id="tool">
+            <option value="brush">Brush</option>
+            <option value="eraser">Eraser</option>
+        </select>
+    </div>
+    <div id="menu">
+      <div>
+        <button id="count-button">count</button>
+        <button id="erasePass-button">erase first pass</button>
+        <button id="eraseEdits-button">erase my edits</button>
+        <button id="cancel-button">cancel</button>  
+      </div>
+    </div>
+    
+    <script type="text/javascript" src="app.js">
+    </script> 
+    <script>
+        var sources = 'http://braincircuits.org/cgi-bin/iipsrv.fcgi?FIF=/PMD2495/PMD2495%262494-F30-2016.02.27-03.52.25_PMD2495_3_0090.jp2&GAM=1&WID=1024&RGN=0.512,0.4266666666666667,0.042666666666666665,0.042666666666666665&MINMAX=1:10,255&MINMAX=3:10,255&MINMAX=2:10,255&CVT=jpeg'
+
+        var mskPath = "http://localhost:8000/mbaservices/annotationservice/load_firstpass_mask/?brain_id=2495&series_id=4958&section_id=1101825&section=90&tile=242&tile_wid=1024&tile_hei=1024&category=process&tracer=green";
+        
+        main(sources,mskPath);
+    </script>  
+    
+  </body>
+</html>    
